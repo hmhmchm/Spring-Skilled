@@ -1,5 +1,6 @@
 package com.sparta.delivery.model;
 
+import com.sparta.delivery.dto.RestaurantRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -25,9 +26,9 @@ public class Restaurant {
     @Column(nullable = false)
     private int deliveryFee; // 기본 배달
 
-    public Restaurant(String name, int minOrderPrice, int deliveryFee) {
-        this.name = name;
-        this.minOrderPrice = minOrderPrice;
-        this.deliveryFee = deliveryFee;
+    public Restaurant(RestaurantRequestDto requestDto){
+        this.name = requestDto.getName();
+        this.minOrderPrice = requestDto.getMinOrderPrice();
+        this.deliveryFee = requestDto.getDeliveryFee();
     }
 }

@@ -1,6 +1,7 @@
 package com.sparta.delivery.controller;
 
 import com.sparta.delivery.dto.RestaurantRequestDto;
+import com.sparta.delivery.dto.RestaurantResponseDto;
 import com.sparta.delivery.model.Restaurant;
 import com.sparta.delivery.repository.RestaurantRepository;
 import com.sparta.delivery.service.RestaurantService;
@@ -20,13 +21,13 @@ public class RestaurantController {
 
     // 음식점 조회
     @GetMapping("/restaurants")
-    public List<Restaurant> getRestaurant(){
-        return restaurantRepository.findAll();
+    public List<RestaurantResponseDto> getRestaurant(){
+        return restaurantService.getRestaurant();
     }
-
+    //음식점 등록
     @PostMapping("/restaurant/register")
     public Restaurant createRestaurant(@RequestBody RestaurantRequestDto requestDto){
-        Restaurant restaurant = restaurantService.createRestaurant();
+        Restaurant restaurant = restaurantService.createRestaurant(requestDto);
         return restaurant;
     }
 }
