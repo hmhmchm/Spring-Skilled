@@ -29,16 +29,17 @@ public class FoodService {
 
         for (FoodRequestDto requestDto:foodRequestDtoList
              ) {
+            // 같은 음식점 내에서는 음식 이름이 중복될 수 없다.
+            if (foodRepository.existsByNameAndRestaurantId(requestDto.getName(),restaurantId)){
+                throw new IllegalArgumentException("중복된 음식이름이 존재합니다.");
+            }
             // 100원에서 1,000,000원만 입력가능
             if(requestDto.getPrice() < 100 || requestDto.getPrice() > 1000000){
                 throw new IllegalArgumentException("가격은 100원에서 1,000,000원 사이만 입력이 가능합니다.");
             }
             // 100원단위만 입력가능
             if (requestDto.getPrice() % 100 !=0) throw new IllegalArgumentException("100원 단위로만 입력이 가능합니다.");
-            // 같은 음식점 내에서는 음식 이름이 중복될 수 없다.
-            if (foodRepository.existsByNameAndRestaurantId(requestDto.getName(),restaurantId)){
-                throw new IllegalArgumentException("중복된 음식이름이 존재합니다.");
-            }
+
 
             Food food = new Food(restaurant,requestDto); // 생성자 이거 씀.
             foodRepository.save(food);

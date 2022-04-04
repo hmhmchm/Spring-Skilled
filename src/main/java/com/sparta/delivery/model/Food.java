@@ -15,17 +15,13 @@ public class Food {
     @Id
     private Long id;
 
-    // 반드시 값을 가지도록 합니다.
-    @Column(nullable = false)
-    private Long restaurantId; // 음식점 DB 테이블 ID
-
     @Column(nullable = false)
     private String name; // 음식명
 
     @Column(nullable = false)
     private int price; // 가격
 
-    @ManyToOne(targetEntity = Restaurant.class) // ? 이게 뭘까
+    @ManyToOne(targetEntity = Restaurant.class) // ?
     @JoinColumn(nullable = false)
     private Restaurant restaurant;
 

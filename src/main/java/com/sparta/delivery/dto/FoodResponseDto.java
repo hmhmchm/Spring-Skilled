@@ -5,15 +5,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
-@NoArgsConstructor
+//@NoArgsConstructor
 public class FoodResponseDto {
     private Long id;
-    private Long restaurantId;
+//    private Long restaurantId;
     private String name;
     private int price;
 
     public FoodResponseDto (Food food){
-        this.restaurantId = food.getRestaurantId();
+        this.id = food.getId();
         this.name = food.getName();
         this.price = food.getPrice();
     }
