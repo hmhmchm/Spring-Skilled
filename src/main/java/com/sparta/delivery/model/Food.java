@@ -21,7 +21,7 @@ public class Food {
     @Column(nullable = false)
     private int price; // 가격
 
-    @ManyToOne(targetEntity = Restaurant.class) // ?
+    @ManyToOne(targetEntity = Restaurant.class)
     @JoinColumn(nullable = false)
     private Restaurant restaurant;
 

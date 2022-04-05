@@ -15,15 +15,17 @@ public class Order {
     private Long id; // 주문요청 id
 
     @Column(nullable = false)
+    private String name; // 주문 음식명
+
+    @Column(nullable = false)
     private int quantity; // 양
 
-    @ManyToOne(targetEntity = Food.class)
-    @JoinColumn(nullable = false)
-    private Food food; // 음식 주문 정보가 필요함
+    @Column(nullable = false)
+    private int price; // 가격
 
-    @ManyToOne(targetEntity = Restaurant.class)
-    @JoinColumn(nullable = false)
-    private Restaurant restaurant;
-
-
+    public Order(String name, int quantity, int price) {
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
+    }
 }
