@@ -5,12 +5,12 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity
-@Getter
 @NoArgsConstructor // 기본생성자
-public class Order {
+@Getter
+@Entity
+public class OrderEntity {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id; // 주문요청 id
 
@@ -23,9 +23,9 @@ public class Order {
     @Column(nullable = false)
     private int price; // 가격
 
-    public Order(String name, int quantity, int price) {
+    public OrderEntity(String name, int quantity, int price) {
         this.name = name;
         this.quantity = quantity;
-        this.price = price;
+        this.price = price * quantity;
     }
 }

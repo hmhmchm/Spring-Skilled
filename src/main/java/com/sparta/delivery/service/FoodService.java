@@ -40,7 +40,6 @@ public class FoodService {
             // 100원단위만 입력가능
             if (requestDto.getPrice() % 100 !=0) throw new IllegalArgumentException("100원 단위로만 입력이 가능합니다.");
 
-
             Food food = new Food(restaurant,requestDto); // 생성자 이거 씀.
             foodRepository.save(food);
         }

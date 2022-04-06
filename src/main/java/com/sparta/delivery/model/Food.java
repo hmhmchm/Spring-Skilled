@@ -1,6 +1,7 @@
 package com.sparta.delivery.model;
 
 import com.sparta.delivery.dto.FoodRequestDto;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor // 기본생성자
 public class Food {
     // ID가 자동으로 생성 및 증가합니다.
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
 
@@ -22,7 +23,7 @@ public class Food {
     private int price; // 가격
 
     @ManyToOne(targetEntity = Restaurant.class)
-    @JoinColumn(nullable = false)
+    @JoinColumn(name = "RESTAURANT_ID", nullable = false)
     private Restaurant restaurant;
 
     public Food(Restaurant restaurant, FoodRequestDto foodRequestDto){

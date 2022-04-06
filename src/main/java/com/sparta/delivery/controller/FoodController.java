@@ -11,7 +11,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 public class FoodController {
-//    private final FoodRepository foodRepository;
+
     private final FoodService foodService;
 
     // 메뉴판 조회

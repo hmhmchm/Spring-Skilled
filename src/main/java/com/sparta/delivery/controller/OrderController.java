@@ -3,7 +3,6 @@ package com.sparta.delivery.controller;
 import com.sparta.delivery.dto.OrderStatementRequestDto;
 import com.sparta.delivery.dto.OrderStatementResponseDto;
 import com.sparta.delivery.service.OrderService;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

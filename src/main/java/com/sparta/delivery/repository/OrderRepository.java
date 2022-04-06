@@ -1,9 +1,9 @@
 package com.sparta.delivery.repository;
 
-import com.sparta.delivery.model.Order;
-import com.sparta.delivery.model.OrderStatement;
+import com.sparta.delivery.model.OrderStatementEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface OrderRepository extends JpaRepository<OrderStatement,Long> {
-
+@Repository
+public interface OrderRepository extends JpaRepository<OrderStatementEntity,Long> {
 }

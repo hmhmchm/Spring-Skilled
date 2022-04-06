@@ -18,7 +18,7 @@ public class RestaurantService {
     private final RestaurantRepository restaurantRepository;
 
     @Transactional // 메소드 동작이 SQL 쿼리문임을 선언.
-    public Restaurant createRestaurant(RestaurantRequestDto requestDto){
+    public RestaurantResponseDto createRestaurant(RestaurantRequestDto requestDto){
         int minOrderPrice = requestDto.getMinOrderPrice(); // 최소주문가격
         int deliveryFee = requestDto.getDeliveryFee(); // 기본 배달비
 
@@ -41,7 +41,8 @@ public class RestaurantService {
 
         Restaurant restaurant = new Restaurant(requestDto);
         restaurantRepository.save(restaurant); // 등록
-        return restaurant;
+
+        return new RestaurantResponseDto(restaurant);
     }
 
     // 음식점 조회하기

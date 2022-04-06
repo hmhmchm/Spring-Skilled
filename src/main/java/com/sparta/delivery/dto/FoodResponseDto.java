@@ -2,9 +2,10 @@ package com.sparta.delivery.dto;
 
 import com.sparta.delivery.model.Food;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
-//@NoArgsConstructor
+@NoArgsConstructor
 public class FoodResponseDto {
     private Long id;
     private String name;

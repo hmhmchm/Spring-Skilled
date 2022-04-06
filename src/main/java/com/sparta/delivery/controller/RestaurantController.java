@@ -16,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 public class RestaurantController {
-    private final RestaurantRepository restaurantRepository;
+//    private final RestaurantRepository restaurantRepository;
     private final RestaurantService restaurantService;
 
     // 음식점 조회
@@ -24,10 +24,11 @@ public class RestaurantController {
     public List<RestaurantResponseDto> getRestaurant(){
         return restaurantService.getRestaurant();
     }
+
     //음식점 등록
     @PostMapping("/restaurant/register")
-    public Restaurant createRestaurant(@RequestBody RestaurantRequestDto requestDto){
-        Restaurant restaurant = restaurantService.createRestaurant(requestDto);
-        return restaurant;
+    public RestaurantResponseDto createRestaurant(@RequestBody RestaurantRequestDto requestDto){
+
+        return restaurantService.createRestaurant(requestDto);
     }
 }
